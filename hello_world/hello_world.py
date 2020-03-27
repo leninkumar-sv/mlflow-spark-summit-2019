@@ -35,7 +35,7 @@ def run(alpha, run_origin, log_artifact):
             mlflow.log_artifact("info.txt")
 
         params = [ Param("p1","0.1"), Param("p2","0.2") ]
-        metrics = [ Metric("m1",0.1,now), Metric("m2",0.2,now) ]
+        metrics = [ Metric("m1",0.1,now, step=0), Metric("m2",0.2,now, step=0) ]
         tags = [ RunTag("t1","hi1"), RunTag("t2","hi2") ]
         client.log_batch(run.info.run_uuid, metrics, params, tags)
 
