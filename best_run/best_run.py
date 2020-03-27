@@ -7,9 +7,9 @@ def lt(x,y): return x < y
 def gt(x,y): return x > y
 
 def calc(metric,run, best, funk):
-    for m in run.data.metrics:
-        if m.key == metric and (best is None or funk(m.value,best[1])):
-           best = (run.info.run_uuid,m.value)
+    for key,value in run.data.metrics.items():
+        if key == metric and (best is None or funk(value,best[1])):
+           best = (run.info.run_uuid,value)
     return best
 
 """
